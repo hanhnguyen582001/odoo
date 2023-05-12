@@ -1,0 +1,33 @@
+<odoo>
+  <record id="education_school_action" model="ir.actions.act_window">
+    <field name="name">School</field>
+    <field name="res_model">education.school</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="education_school_menu" action="education_school_action"
+    parent="education_student_menu_root" name="School" sequence="30" />
+  <record id='education_school_view_form' model='ir.ui.view'>
+    <field name='name'>Schools</field>
+    <field name='model'>education.school</field>
+    <field name='arch' type='xml'>
+      <form string='School form'>
+        <header>
+          <button name='get_all_students' type='object' string='Log all Students' />
+          <button name="create_schools" type="object" string="Create Schools" />
+        </header>
+        <sheet>
+          <group>
+            <field name='name' />
+            <field name='code' />
+          </group>
+          <group>
+            <field name='class_ids' />
+          </group>
+          <group>
+            <field name='student_ids' />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

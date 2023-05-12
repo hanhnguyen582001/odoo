@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_education_student,education.student,model_education_student,base.group_user,1,1,1,1
+ace_student,education.student user,model_education_student,,1,0,0,0
+ace_student_teacher,education.student teacher,model_education_student,group_teacher,1,1,1,1
+ace_class,education.class user,model_education_class,,1,0,0,0
+ace_class_teacher,education.class teacher,model_education_class,group_teacher,1,1,1,1
+ace_school,education.school user,model_education_school,,1,0,0,0
+ace_school_teacher,education.school teacher,model_education_school,group_teacher,1,1,1,1

@@ -1,5 +1,80 @@
-<record id="education_student_action" model="ir.actions.act_window">
-  <field name="name">Students</field>
-  <field name="res_model">education.student</field>
-  <field name="view_mode">tree,form</field>
-</record>
+<odoo>
+  <record id="education_student_action" model="ir.actions.act_window">
+    <field name="name">Students</field>
+    <field name="res_model">education.student</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem name="Education Manager" id="education_student_menu_root" />
+  <menuitem id="education_student_menu" action="education_student_action"
+    parent="education_student_menu_root" name="Students" sequence="10" />
+  <record id="education_student_view_form" model="ir.ui.view">
+    <field name="name">education.student.form</field>
+    <field name="model">education.student</field>
+    <field name="arch" type="xml">
+      <form string="Student Form">
+        <header>
+          <button name="change_to_new" type="object" string="New" />
+          <button name="change_to_studying" type="object" string="Studying" />
+          <button name="change_to_off" type="object" string="Off" />
+          <field name="state" widget="statusbar" />
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="name" />
+              <field name="student_code" />
+              <field name="gender" />
+              <field name="date_of_birth" />
+              <field name="age" />
+            </group>
+            <group>
+              <field name="total_score" />
+              <field name="attached_file" />
+              <field name="write_date" />
+            </group>
+          </group>
+          <group>
+            <field name="notes" />
+          </group>
+          <group>
+            <field name="description" />
+          </group>
+          <group>
+            <group>
+              <field name="currency_id" />
+              <field name="amount_paid" />
+            </group>
+            <group>
+              <field name='school_id' />
+              <field name='school_code' />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="education_student_view_tree" model="ir.ui.view">
+    <field name="name">education.student.tree</field>
+    <field name="model">education.student</field>
+    <field name="arch" type="xml">
+      <tree string="Student Tree">
+        <field name="name" />
+        <field name="student_code" />
+        <field name="gender" />
+        <field name="date_of_birth" />
+        <field name="age" />
+        <field name="total_score" />
+        <field name="write_date" />
+      </tree>
+    </field>
+  </record>
+  <record id="education_student_view_search" model="ir.ui.view">
+    <field name="name">education.student.search</field>
+    <field name="model">education.student</field>
+    <field name="arch" type="xml">
+      <search string="Students Search">
+        <field name="name" filter_domain="['|', '|', ('name', 'ilike', self)" />
+      </search>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+  <record id="education_class_action" model="ir.actions.act_window">
+    <field name="name">Class</field>
+    <field name="res_model">education.class</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="education_class_menu" action="education_class_action"
+    parent="education_student_menu_root" name="Class" sequence="20" />
+</odoo>
